@@ -1,0 +1,41 @@
+FROM php:8.2-fpm
+
+ENV APP_ENV=${APP_ENV:-prod} \
+    WEB_PORT_EXPOSED=${WEB_PORT_EXPOSED:-8077} \
+    DATABASE_PORT_EXPOSED=${DATABASE_PORT_EXPOSED:-3308} \
+    DATABASE_HOST=${DATABASE_HOST:-database} \
+    DATABASE_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD:-password} \
+    DATABASE_USERNAME=${DATABASE_USERNAME:-admin} \
+    DATABASE_PASSWORD=${DATABASE_PASSWORD:-password} \
+    DATABASE_NAME=${DATABASE_NAME:-slim} \
+    ERROR_REPORTING=${ERROR_REPORTING:-0} \
+    DISPLAY_ERROR=${DISPLAY_ERROR:-0} \
+    XDEBUG_MODE=${XDEBUG_MODE:-off} \
+    XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST:-host.docker.internal}
+RUN apt update \
+    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpq-dev \
+    && docker-php-ext-configure pdo_mysql \
+    && docker-php-ext-install intl opcache mysqli pdo pdo_mysql \
+    && docker-php-ext-enable mysqli
+RUN pecl install apcu \
+    && docker-php-ext-enable apcu \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip
+RUN apt-get install -y wget && \
+    wget http://pear.php.net/go-pear.phar && \
+    php go-pear.phar && \
+    rm go-pear.phar
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host = host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+
+WORKDIR /var/www/slim_app
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY docker/php/add-xdebug.ini /usr/local/etc/php-fpm.d
+RUN git config --global user.email "dev@dev.click" \
+    && git config --global user.name "Dev"
+
+EXPOSE 9000
+CMD ["php-fpm"]
