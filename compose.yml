@@ -1,4 +1,3 @@
-version: '3'
 services:
 
   #PHP Service
@@ -28,6 +27,13 @@ services:
       - ./main:/var/www
     networks:
       - app-network
+    develop:
+      watch:
+        - action: sync
+          path: ./main/
+          target: /var/www/
+          ignore:
+            - vendor/
 
   #Nginx Service
   webserver:
