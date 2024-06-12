@@ -1,4 +1,4 @@
-# Slim by mafio :-) 
+# Laravel by mafio :-)
 
 **For the application to work, it is necessary to run dockerfile or docker-compose**   
 **To run on the system, docker and docker-compose must be installed**
@@ -44,7 +44,8 @@ GIT windows (for problems with scripts and line endings)
 Note: In the `.env.example` file do not make changes. Any other `.env` files are freely configurable.
 
 # Mini course docker 
-The microservice ports are set in the docker-compose ( `"docker-compose.yml` ) file, they can be
+
+The microservice ports are set in the docker-compose ( `"docker-compose.yml | compose.yml` ) file, they can be
 sampled according to a pattern `host:container`
 <pre>
 services:
@@ -66,7 +67,7 @@ docker compose up -d
 - insert the id of the container (mdm-backend) you want to use `docker exec -it <CONTAINER_ID | container name> bash`  
 #### For example  
 ```shell  
-docker exec -it slim_php bash
+docker exec -it app bash
 ```
   
 ## Command in container
@@ -82,8 +83,9 @@ _Use with caution. Especially databases, all data is deleted._
 `docker network create mf-net` add external network, run in bash in host   
 
 ___
-SLIM official [website](https://www.slimframework.com/)  
+Laravel official [website](https://laravel.com/)  
 GIT config [documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)  
 Docker cli [documentation](https://docs.docker.com/engine/reference/commandline)  
-Dev.to article [website](https://dev.to/cherif_b/introducing-slim-4-55j9)  
+Dev.to article [website](https://dev.to/cherif_b/introducing-slim-4-55j9)     
+Markdown Guide [website](https://www.markdownguide.org//basic-syntax/)
 ___

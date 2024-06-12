@@ -14,7 +14,8 @@ ENV APP_ENV=${APP_ENV:-prod} \
     XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST:-host.docker.internal}
 
 RUN git config --global user.email "dev@dev.click" \
-    && git config --global user.name "Dev"
+    && git config --global user.name "Dev" && apt-get  update
+#RUN apt-get install -y php-xml
 
 EXPOSE 9000
 CMD ["php-fpm"]
