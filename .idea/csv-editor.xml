@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="/docker/minima_produktowe.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/main/database/file/minima produktowe_csv.csv">
           <value>
             <Attribute>
@@ -10,14 +17,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/main/storage/app/public/minima_csv.csv">
+        <entry key="/main/database/file_example/minima_csv.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/minima produktowe_csv.csv">
+        <entry key="/main/storage/app/public/minima_csv.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
