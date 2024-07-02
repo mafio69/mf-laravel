@@ -20,15 +20,14 @@ All discovered passwords are examples, all addresses also apply to the local net
 npm install -g ng-cli
 
 ### WIN
-1.[install docker win 10](https://docs.docker.com/docker-for-windows/install/)
+[install docker win 10](https://docs.docker.com/docker-for-windows/install/)
 
-**NOTE `<EXAMPLE>` To be replaced with the appropriate values**  
-**`exit 0` or `exit status 0` In linux it means `[OK]` any other number is an error**
+**NOTE `<EXAMPLE>` To be replaced with the appropriate values**    
+**`exit 0` or `exit status 0` In linux it means `[OK]` any other number is an error**  
 ___
 ___
 
 ### Problems that may be encountered
-
 
 #### ERROR WINDOWS
 
@@ -61,10 +60,10 @@ Name `php` service is also a name server
 ## Run Docker Compose
 ```shell
 docker compose up -d
-```
+```  
 ## How to use bash inside a container?  
 - list container `docker ps`  (take the container id)  
-- insert the id of the container (mdm-backend) you want to use `docker exec -it <CONTAINER_ID | container name> bash`  
+- insert the id of the container (mdm-backend) you want to use `docker exec -it <CONTAINER_ID | container name> bash`    
 #### For example  
 ```shell  
 docker exec -it app bash
@@ -75,14 +74,14 @@ docker exec -it app bash
 composer install
 ```
 #### DOCKER
-___  
+___    
 `docker builder prune` - Remove build cache  
 `docker system prune` - Remove all unused containers which are stopped, networks, images (both dangling and unreferenced), and optionally,
 volumes.   
 _Use with caution. Especially databases, all data is deleted._  
 `docker network create mf-net` add external network, run in bash in host   
 
-___
+___  
 Laravel official [website](https://laravel.com/)  
 GIT config [documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)  
 Docker cli [documentation](https://docs.docker.com/engine/reference/commandline)  
