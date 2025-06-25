@@ -1,0 +1,6 @@
+POST http://localhost:8822/perplexity/add
+Content-Type: application/json
+
+{
+  "question": "Czym jest PHP?"
+}

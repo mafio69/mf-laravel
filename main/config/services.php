@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'perplexity' => [
+        'api_key' => env('PERPLEXITY_API_KEY'),
+    ],
+
 ];

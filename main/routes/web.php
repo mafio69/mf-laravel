@@ -2,11 +2,18 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PerplexityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/perplexity/add', [PerplexityController::class, 'add']);
+Route::get('/perplexity', [PerplexityController::class, 'index']);
+Route::get('/perplexity/{id}', [PerplexityController::class, 'show']); // Add this line
+Route::delete('/perplexity/{id}', [PerplexityController::class, 'destroy']); // Add this line
+Route::put('/perplexity/{id}', [PerplexityController::class, 'update']); // Add this line
 
 Route::get('/dashboard', function () {
     return view('dashboard');
